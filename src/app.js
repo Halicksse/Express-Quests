@@ -1,6 +1,7 @@
 const express = require("express");
 
 const app = express();
+app.use(express.json());
 
 const movieControllers = require("./controllers/movieControllers");
 
@@ -11,5 +12,8 @@ const userControllers = require("./controllers/userControllers");
 
 app.get("/api/users", userControllers.getUsers);
 app.get("/api/users/:id", userControllers.getUsersById);
+
+app.post("/api/movies", movieControllers.postMovie);
+app.post("/api/users", userControllers.postUsers);
 
 module.exports = app;
