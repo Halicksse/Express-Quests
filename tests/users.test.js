@@ -32,7 +32,7 @@ describe("GET /api/users/:id", () => {
   });
 });
 
-describe("POST/ api/users", () => {
+describe("POST /api/users", () => {
   it("should return created user", async () => {
     const newUser = {
       firstname: "pedro",
