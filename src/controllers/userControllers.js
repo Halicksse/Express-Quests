@@ -8,14 +8,14 @@ const getUsers = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(404);
+      res.status(404);
     });
 };
 const getUsersById = (req, res) => {
   const id = parseInt(req.params.id);
 
   database
-    .query("select * from users where id = ?", [id])
+    .query("select * from users where id =?", [id])
     .then(([users]) => {
       if (users[0] != null) {
         res.json(users[0]);
@@ -25,9 +25,10 @@ const getUsersById = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res.status(500);
     });
 };
+
 const postUsers = (req, res) => {
   const { firstname, lastname, email, city, language } = req.body;
 
@@ -41,9 +42,10 @@ const postUsers = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res.status(500);
     });
 };
+
 const updateUser = (req, res) => {
   const id = parseInt(req.params.id);
   const { firstname, lastname, email, city, language } = req.body;

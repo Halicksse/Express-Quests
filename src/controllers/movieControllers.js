@@ -34,7 +34,7 @@ const getMovies = (req, res) => {
   })
   .catch((err) => {
     console.error(err);
-    res.sendStatus(500);
+    res.status(500);
   });
 };
 
@@ -52,7 +52,7 @@ const getMovieById = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res.status(500);
     });
 };
 
@@ -69,7 +69,7 @@ const postMovie = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res.status(500);
     });
 };
 const updateMovie = (req, res) => {
