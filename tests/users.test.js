@@ -72,7 +72,7 @@ describe("POST /api/users", () => {
       .post("/api/users")
       .send(userWithMissingProps);
 
-    expect(response.status).toEqual(201);
+    expect(response.status).toEqual(422);
   });
 });
 
@@ -81,7 +81,7 @@ describe("PUT /api/users/:id", () => {
     const newUser = {
       firstname: "Penelope",
       lastname: "Cruz",
-      email:`${crypto.randomUUID()}@aol.com`,
+      email: `${crypto.randomUUID()}@aol.com`,
       city: "Barcelona",
       language: "spanish",
     };
@@ -102,7 +102,7 @@ describe("PUT /api/users/:id", () => {
     const updatedUser = {
       firstname: "Roger",
       lastname: "Rabbit",
-      email:`${crypto.randomUUID()}@aol.com`,
+      email: `${crypto.randomUUID()}@aol.com`,
       city: "Los Angeles",
       language: "english",
     };
@@ -141,7 +141,7 @@ describe("PUT /api/users/:id", () => {
       .put(`/api/users/1`)
       .send(userWithMissingProps);
 
-    expect(response.status).toEqual(500);
+    expect(response.status).toEqual(422);
   });
 
   it("should return no user", async () => {
@@ -154,7 +154,6 @@ describe("PUT /api/users/:id", () => {
     };
 
     const response = await request(app).put("/api/users/0").send(newUser);
-
 
     expect(response.status).toEqual(404);
   });
